@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:disableDependentsState="false"
+        android:key="pref_rtm_active"
+        android:summaryOff="Remember the milk tasks will not be shown"
+        android:summaryOn="Remember the milk tasks will be shown"
+        android:title="Show Remember the Milk tasks" />
+
+    <PreferenceCategory android:title="Authentication" >
+        <Preference
+            android:dependency="pref_rtm_active"
+            android:key="pref_rtm_authenticate"
+            android:summary="You need to do this once"
+            android:title="Authenticate with Remember the Milk" />
+        <Preference
+            android:key="pref_rtm_check_auth"
+            android:summary="Checks whether you are authenticated"
+            android:title="Check authentication" android:dependency="pref_rtm_active"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Design" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="pref_rtm_active"
+            android:key="pref_rtm_bold_text"
+            android:summaryOff="Showing task in plain font"
+            android:summaryOn="Showing task in bold font"
+            android:title="Bold font" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="pref_rtm_active"
+            android:key="pref_rtm_long_titles"
+            android:summaryOff="The items are always only one-line"
+            android:summaryOn="Long titles double the displayed item&apos;s size"
+            android:title="Long titles" />
+
+        
+        
+        
+        
+        
+    <PreferenceScreen android:title="Prefixes" android:summary="Set text to appear before each task" android:dependency="pref_rtm_active"><EditTextPreference android:defaultValue="! " android:dependency="pref_rtm_active" android:dialogMessage="What should be prepended to your task texts?" android:dialogTitle="Task prefix (no priority)" android:key="pref_rtm_task_prefix" android:summary="What to prepend to your no-priority tasks" android:title="Task prefix (no priority)" /><EditTextPreference android:defaultValue="! " android:dependency="pref_rtm_active" android:dialogMessage="What should be prepended to your task texts?" android:dialogTitle="Task prefix (priority 3)" android:key="pref_rtm_task_prefix_3" android:summary="What to prepend to your priority 3 tasks" android:title="Task prefix (priority 3)" /><EditTextPreference android:defaultValue="!! " android:dependency="pref_rtm_active" android:dialogMessage="What should be prepended to your task texts?" android:dialogTitle="Task prefix (priority 2))" android:key="pref_rtm_task_prefix_2" android:summary="What to prepend to your priority 2 tasks" android:title="Task prefix (priority 2)" /><EditTextPreference android:defaultValue="!!! " android:dependency="pref_rtm_active" android:dialogMessage="What should be prepended to your task texts?" android:dialogTitle="Task prefix (priority 1))" android:key="pref_rtm_task_prefix_1" android:summary="What to prepend to your priority 1 tasks" android:title="Task prefix (priority 1)" /></PreferenceScreen></PreferenceCategory>
+    <PreferenceCategory android:title="Tasks" >
+        <EditTextPreference
+            android:dialogMessage="Use any valid RTM search query like &quot;priority:1 AND list:private&quot;"
+            android:dialogTitle="Filter"
+            android:key="pref_rtm_filter"
+            android:summary="Define which tasks to show"
+            android:title="Filter" android:dependency="pref_rtm_active"/>
+
+        <ListPreference
+            android:key="pref_rtm_sync_interval"
+            android:summary="How often do you want to sync with RTM?"
+            android:title="Sync interval" android:entries="@array/rtm_sync_intervals" android:entryValues="@array/rtm_sync_intervals_values" android:defaultValue="30" android:dependency="pref_rtm_active"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

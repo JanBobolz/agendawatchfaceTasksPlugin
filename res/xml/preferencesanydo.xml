@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <CheckBoxPreference android:key="pref_anydo_active" android:summaryOn="No any.do tasks will be shown" android:summaryOff="Any.do tasks will be shown" android:title="Show Any.do tasks" android:defaultValue="true" android:disableDependentsState="false"/>
+    <PreferenceScreen
+        android:key="pref_anydo_screen_folder_pick"
+        android:persistent="false"
+        android:summary="Choose which folders to display"
+        android:title="Pick folders to display" android:dependency="pref_anydo_active">
+    </PreferenceScreen>
+	<CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_anydo_show_only_today"
+        android:summaryOff="Showing tasks for today"
+        android:summaryOn="Showing all future tasks"
+        android:title="Show only today's tasks" android:dependency="pref_anydo_active" />
+	<CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_anydo_show_only_important"
+        android:summaryOff="Showing only important tasks"
+        android:summaryOn="Also showing unimportant tasks"
+        android:title="Show only important tasks" android:dependency="pref_anydo_active" />
+	<CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_anydo_bold_text"
+        android:summaryOff="Showing task in plain font"
+        android:summaryOn="Showing task in bold font"
+        android:title="Bold font" android:dependency="pref_anydo_active" />
+	<CheckBoxPreference android:summaryOff="The items are always only one-line" android:summaryOn="Long titles double the displayed item's size" android:title="Long titles" android:key="pref_anydo_long_titles" android:defaultValue="true" android:dependency="pref_anydo_active"/>
+	<EditTextPreference android:title="Task prefix" android:defaultValue="! " android:key="pref_anydo_task_prefix" android:summary="What to prepend to the task text" android:dialogMessage="What should be prepended to your task texts?" android:dialogTitle="Task prefix" android:dependency="pref_anydo_active"/>
+	<EditTextPreference android:title="Important task prefix" android:defaultValue="!! " android:key="pref_anydo_task_prefix_important" android:summary="What to prepend to the text of important tasks" android:dialogMessage="What should be prepended to your important task texts?" android:dialogTitle="Task prefix" android:dependency="pref_anydo_active"/>
+	
+</PreferenceScreen>
