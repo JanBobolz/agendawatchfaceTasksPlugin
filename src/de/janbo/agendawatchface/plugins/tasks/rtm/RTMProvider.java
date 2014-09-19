@@ -2,8 +2,6 @@ package de.janbo.agendawatchface.plugins.tasks.rtm;
 
 import java.util.Collections;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,7 +23,7 @@ public class RTMProvider extends AgendaWatchfacePlugin {
 	@Override
 	public void onRefreshRequest(Context context) {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		if (!prefs.getBoolean("pref_rtm_active", false)) {
+		if (!prefs.getBoolean("pref_rtm_active", false)) { //rtm inactive
 			publishData(context, Collections.<AgendaItem> emptyList(), false);
 			return;
 		}
@@ -40,11 +38,11 @@ public class RTMProvider extends AgendaWatchfacePlugin {
 		context.startActivity(intent);
 	}
 	
-	private void setAlarm(Context context) {
+	/*private void setAlarm(Context context) {
 		AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		long interval = Long.parseLong(prefs.getString("pref_rtm_sync_interval", "30"))*60*1000;
 		PendingIntent intent = PendingIntent.getService(context, 0, new Intent(context, RTMService.class), 0);
 		manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, System.currentTimeMillis()+interval, interval, intent);
-	}
+	}*/
 }

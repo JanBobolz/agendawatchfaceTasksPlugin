@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="20" />
     <uses-permission android:name="com.anydo.provider.permission.READ_ANYDO_TASKS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 

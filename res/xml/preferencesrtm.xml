@@ -53,7 +53,7 @@
         <ListPreference
             android:key="pref_rtm_sync_interval"
             android:summary="How often do you want to sync with RTM?"
-            android:title="Sync interval" android:entries="@array/rtm_sync_intervals" android:entryValues="@array/rtm_sync_intervals_values" android:defaultValue="30" android:dependency="pref_rtm_active"/>
+            android:title="Sync interval (not implemented yet)" android:entries="@array/rtm_sync_intervals" android:entryValues="@array/rtm_sync_intervals_values" android:defaultValue="30" android:dependency="pref_rtm_active" android:enabled="false"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -1,6 +1,5 @@
 package de.janbo.agendawatchface.plugins.tasks.rtm;
 
-import it.bova.rtmapi.Estimate.DurationUnit;
 import it.bova.rtmapi.Permission;
 import it.bova.rtmapi.RtmApi;
 import it.bova.rtmapi.RtmApiAuthenticator;
@@ -45,6 +44,9 @@ public class RTMService extends IntentService {
 			updateData();
 	}
 	
+	/**
+	 * Updates the AgendaWatchface service with new data
+	 */
 	protected void updateData() {
 		ArrayList<AgendaItem> items = new ArrayList<AgendaItem>();
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -88,15 +90,19 @@ public class RTMService extends IntentService {
 				switch (task.getPriority()) {
 				case HIGH:
 					prefix = prefixes[3];
+					item.priority = 3;
 					break;
 				case LOW:
 					prefix = prefixes[1];
+					item.priority = 1;
 					break;
 				case MEDIUM:
 					prefix = prefixes[2];
+					item.priority = 2;
 					break;
 				case NONE:
 					prefix = prefixes[0];
+					item.priority = 0;
 					break;
 				default:
 					break;
@@ -123,6 +129,9 @@ public class RTMService extends IntentService {
 		new RTMProvider().publishData(getApplicationContext(), items, false);
 	}
 
+	/**
+	 * Broadcasts (via Android) a String describing the current authentication status
+	 */
 	protected void checkAuthentication() {
 		String authenticated = "Not authenticated";
 		String token = getToken();
